@@ -1,61 +1,73 @@
-# tkribbon demo
+# tkribbon
 
-Try **tkribbon**, an Office-style ribbon, docking panes and 60+ custom-drawn widgets for Tcl/Tk, written in C. It
-runs on **Windows** and **Linux** (X11), in **Tcl/Tk 8.5, 8.6 and 9.0**, and in Python's tkinter. This repository holds the demo
-programs only; they need nothing installed, not even Tcl/Tk.
+**tkribbon** is an Office-style ribbon, docking panes and 100+ custom-drawn widgets for Tcl/Tk, written in C. It
+runs on **Windows** and **Linux** (X11), in **Tcl/Tk 8.5, 8.6 and 9.0**, and in Python's tkinter. This repository
+holds the releases: the libraries, Tcl/Tk runtimes with tkribbon inside, the Python packages and the demo programs.
 
 <img src="screenshots/windows/demo-start.png" alt="tkribbon demo on Windows" width="800">
 
-## New in 0.2.0
+## License
 
-Widgets for dashboards, drawn smoothly and following the dark and light themes (see the
-[screenshots](#dashboard-widgets) below):
+tkribbon is **free for personal use**. Companies and other organizations, and individuals who make commercial
+products with it, need a paid license. There is no time limit: everything here works for as long as you use it.
 
-- `rtk::gauge`: round meters with colored zones, ticks and an optional needle
-- `rtk::progressring` and `rtk::activityrings`: a round progress indicator, and several rings for several goals
-- `rtk::sparkline` and `rtk::kpi`: word-sized charts, and key figure tiles with the change and a sparkline
-- `rtk::bulletchart` and `rtk::funnelchart`: a measure against its target, and the stages of a funnel
-- `rtk::daterange`: a date range picker with presets and two months
-- `rtk::avatar` and `rtk::pagination`: people with status dots and badges, and a page bar for long lists
-- cell types for `rtk::datagrid`: progress bars, sparklines, check boxes, status badges and star ratings in columns
+For a commercial license, or if you are not sure which one applies to you, please ask in the
+[Issues](https://github.com/hanulso78/tkribbon-release/issues).
 
-All of them are in Python too. Three new examples show them: **meters** (a server monitor), **sales** (a sales
-dashboard) and **team** (a team page). Each version now has its own 15 days of trial.
+## New in 0.3.0
 
-## About this release
-
-tkribbon is planned as a commercial product. Before deciding on licensing and pricing, I am releasing these demo
-programs to see whether the library is useful to Tcl/Tk developers and what they would need from it. That is why the
-programs are time-limited and the source is not public yet.
-
-Your feedback helps decide what comes next: which widgets you would use, what is missing, which platforms or Tcl/Tk
-versions matter to you, and what kind of license would work for you (per developer, per project, source included,
-and so on). Please share it in the [Issues](https://github.com/hanulso78/tkribbon-demo/issues).
+- **Free for personal use, no time limit**: the 15-day trial of the earlier versions is gone.
+- **Tclkits with tkribbon inside**: single-file Tcl/Tk 8.5, 8.6 and 9.0 runtimes for Windows and Linux with the four
+  packages linked into the executable. `package require tkribbon` just works, with no DLLs or `.so` files beside it.
+- **Libraries for your own Tcl/Tk on Windows** in a zip, as for Linux.
+- **`rtk::themescope`**: a window keeps its own theme whatever the application's theme, for example a form designer
+  showing a form the way the program will show it; **`rtk::ttktheme`**: the tkribbon ttk theme in the colors of any
+  style; until a theme is chosen, the widgets use the system colors.
+- **`rtk::inert`**: widgets that draw as usual but ignore the mouse and the keyboard, for form designers.
+- **`rtk::dock -corners`**: choose which side owns each corner of the docking area.
+- Scintilla editors can share a document; the code outline reads Tcl command by command, with more kinds of
+  definitions; `-rowheight` for the file browser and the code outline.
+- Fixes: a crash when copying from a widget that was never shown, Alt and key tips on Windows, and more.
 
 ## Download
 
-Get the files from the [Releases](https://github.com/hanulso78/tkribbon-demo/releases) page. Each platform has the
-same two programs:
+Get the files from the [Releases](https://github.com/hanulso78/tkribbon-release/releases) page.
+
+### For your own programs
+
+| File | What it is |
+|---|---|
+| `tclkit-tkribbon-0.3.0-tcl<version>-win-amd64.exe` | A Tcl/Tk 8.5.19, 8.6.18 or 9.0.4 runtime with tkribbon inside, Windows 64-bit |
+| `tclkit-tkribbon-0.3.0-tcl<version>-linux-x86_64.tar.gz` | The same for Linux x86-64 |
+| `tkribbon-0.3.0-win-amd64.zip` | The libraries for your own Tcl/Tk on Windows: a `tkribbon/` folder to put on `auto_path` |
+| `tkribbon-0.3.0-linux-x86_64.tar.gz` | The same for Linux |
+| `tkribbon-0.3.0-py3-none-win_amd64.whl` | The library for Python's tkinter on Windows (Python 3.8 or newer): `pip install <file>` |
+| `tkribbon-0.3.0-py3-none-manylinux_2_28_x86_64.whl` | The same for Linux |
+
+A tclkit runs a script (`tclkit-tkribbon-0.3.0-tcl9.0.4-win-amd64.exe myapp.tcl`), and an application can be
+wrapped into it as with any tclkit to make a single-file program. On Linux, the 8.5 and 8.6 kits load Tk with
+`package require Tk`.
+
+### Demo programs
+
+Each platform has the same two programs, which need nothing installed, not even Tcl/Tk:
 
 - **tkribbon-demo**: one window with a ribbon, docking panes, a code editor, widgets, a data grid with 20,000 rows,
   charts, a setup wizard, and every example in tabs.
 - **tkribbon-examples**: the examples launcher, with 109 small programs, one per widget or topic, grouped by topic
   with a filter box. Double-click one to run it in its own window.
 
-| Platform | File | Notes |
-|---|---|---|
-| Windows | `tkribbon-demo.exe`, `tkribbon-examples.exe` | Windows 10 or 11, 64-bit; runs on Tcl/Tk 8.5 |
-| Windows | `tkribbon-demo-tcl9.exe`, `tkribbon-examples-tcl9.exe` | The same programs on Tcl/Tk 9.0 |
-| Linux | `tkribbon-demo-linux-x86_64.tar.gz` | Both programs in one archive; x86-64 with glibc 2.28 or newer; runs on Tcl/Tk 9.0 |
-| Python | `tkribbon-0.2.0-py3-none-win_amd64.whl`, `tkribbon-0.2.0-py3-none-manylinux_2_28_x86_64.whl` | The library for tkinter, Python 3.8 or newer: `pip install <file>` |
-
-All the files are time-limited: they work for **15 days** from the first start on a computer. Each version has its
-own 15 days.
+| File | Notes |
+|---|---|
+| `tkribbon-demo.exe`, `tkribbon-examples.exe` | Windows 10 or 11, 64-bit; runs on Tcl/Tk 8.5 |
+| `tkribbon-demo-tcl9.exe`, `tkribbon-examples-tcl9.exe` | The same programs on Tcl/Tk 9.0 |
+| `tkribbon-demo-linux-x86_64.tar.gz` | Both programs for Linux x86-64 (glibc 2.28 or newer); runs on Tcl/Tk 9.0 |
 
 ### Windows
 
 - The programs are not signed, so Windows SmartScreen may ask before starting them ("More info", then "Run anyway").
-- On the first start a program unpacks its files into `%LOCALAPPDATA%\tkribbon-demo` (or `tkribbon-examples`).
+- On the first start a demo program unpacks its files into `%LOCALAPPDATA%\tkribbon-demo` (or `tkribbon-examples`).
+  A tclkit unpacks only `WebView2Loader.dll`, into `%LOCALAPPDATA%\tkribbon`, the first time `rtk::html` is used.
   To remove them, delete those folders.
 
 ### Linux
@@ -68,11 +80,11 @@ cd tkribbon-demo-linux-x86_64
 ```
 
 - Built and tested on AlmaLinux 8; it should run on any x86-64 distribution with glibc 2.28 or newer (RHEL/Rocky 8+,
-  Fedora, Debian 10+, Ubuntu 20.04+, and so on). Each program holds its own Tcl/Tk 9, so only the usual desktop libraries are needed: X11, Xft, fontconfig
+  Fedora, Debian 10+, Ubuntu 20.04+, and so on). Only the usual desktop libraries are needed: X11, Xft, fontconfig
   and freetype.
 - It runs on X11 desktops and on Wayland desktops through XWayland.
-- On the first start a program unpacks its files into `~/.cache/tkribbon-demo` (or `tkribbon-examples`); the trial
-  record is kept in `~/.config/tkribbon`. To remove them, delete those folders.
+- On the first start a demo program unpacks its files into `~/.cache/tkribbon-demo` (or `tkribbon-examples`). To
+  remove them, delete those folders and `~/.config/tkribbon`.
 
 ## What is in tkribbon
 
@@ -92,7 +104,7 @@ that matches the running Tcl:
 |---|---|---|
 | Windows | `tkribbon.dll`, `tkscintilla.dll`, `tkgraph.dll`, `tkhtmlview.dll` | `tcl9tkribbon.dll`, `tcl9tkscintilla.dll`, `tcl9tkgraph.dll`, `tcl9tkhtmlview.dll` |
 | Linux | `tkribbon.so`, `tkscintilla.so`, `tkgraph.so`, `tkhtmlview.so` | `tcl9tkribbon.so`, `tcl9tkscintilla.so`, `tcl9tkgraph.so`, `tcl9tkhtmlview.so` |
-| Demo programs | `tkribbon-demo.exe`, `tkribbon-examples.exe` (Windows, Tcl/Tk 8.5) | `tkribbon-demo-tcl9.exe`, `tkribbon-examples-tcl9.exe` (Windows), `tkribbon-demo`, `tkribbon-examples` (Linux) |
+| Tclkits | `tclkit-tkribbon-0.3.0-tcl8.5.19-...`, `tclkit-tkribbon-0.3.0-tcl8.6.18-...` | `tclkit-tkribbon-0.3.0-tcl9.0.4-...` |
 | Python wheels | Used when tkinter runs on Tk 8.6 | Used when tkinter runs on Tk 9 |
 
 The libraries use the stubs interfaces, so the 8.x build loads in any Tcl/Tk from 8.5 on and the 9.x build in any
@@ -191,7 +203,7 @@ The same demo on Windows 10 and on Linux (AlmaLinux 8, Tcl/Tk 9).
 
 ### Dashboard widgets
 
-New in 0.2.0, on Windows in the darkgray theme.
+On Windows in the darkgray theme.
 
 | | |
 |---|---|
@@ -203,4 +215,4 @@ New in 0.2.0, on Windows in the darkgray theme.
 
 ## Feedback
 
-Questions, comments and bug reports are welcome in the [Issues](https://github.com/hanulso78/tkribbon-demo/issues).
+Questions, comments and bug reports are welcome in the [Issues](https://github.com/hanulso78/tkribbon-release/issues).
