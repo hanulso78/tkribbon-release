@@ -43,6 +43,7 @@ Get the files from the [Releases](https://github.com/hanulso78/tkribbon-release/
 | `tkribbon-0.3.0-linux-x86_64.tar.gz` | The same for Linux |
 | `tkribbon-0.3.0-py3-none-win_amd64.whl` | The library for Python's tkinter on Windows (Python 3.8 or newer): `pip install <file>` |
 | `tkribbon-0.3.0-py3-none-manylinux_2_28_x86_64.whl` | The same for Linux |
+| `tkribbon-0.3.0-docs.zip` | The manuals (Tcl and Python, one page per command or class, with pictures) and the example programs |
 
 A tclkit runs a script (`tclkit-tkribbon-0.3.0-tcl9.0.4-win-amd64.exe myapp.tcl`), and an application can be
 wrapped into it as with any tclkit to make a single-file program. On Linux, the 8.5 and 8.6 kits load Tk with
