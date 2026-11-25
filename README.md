@@ -12,7 +12,7 @@ tkribbon is **free for personal use**. Companies and other organizations, and in
 products with it, need a paid license. There is no time limit: everything here works for as long as you use it.
 
 For a commercial license, or if you are not sure which one applies to you, please ask in the
-[Issues](https://github.com/hanulso78/tkribbon-release/issues).
+[tkribbon group](https://groups.google.com/g/tkribbon).
 
 ## New in 0.3.0
 
@@ -216,4 +216,5 @@ On Windows in the darkgray theme.
 
 ## Feedback
 
-Questions, comments and bug reports are welcome in the [Issues](https://github.com/hanulso78/tkribbon-release/issues).
+Questions, answers, comments and bug reports go to the [tkribbon group](https://groups.google.com/g/tkribbon)
+(Google Groups).
