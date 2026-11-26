@@ -14,6 +14,15 @@ products with it, need a paid license. There is no time limit: everything here w
 For a commercial license, or if you are not sure which one applies to you, please ask in the
 [tkribbon group](https://groups.google.com/g/tkribbon).
 
+## New in 0.3.1
+
+- **Faster code editing in long files**: the Tcl code outline is read in C (about 25 times faster), the completion
+  list costs a few milliseconds per key, and its document words are counted in C.
+- **`rtk::startpage -image`**: a logo in the header band; frameless windows on Linux can be resized from their edges;
+  the code outline lists XOTcl 2 and NX classes and methods.
+- Fixes: `rtk::theme` no longer brings a frameless main window over an open dialog; `rtk::tkcon` has the theme's
+  colors from the start.
+
 ## New in 0.3.0
 
 - **Free for personal use, no time limit**: the 15-day trial of the earlier versions is gone.
@@ -37,15 +46,15 @@ Get the files from the [Releases](https://github.com/hanulso78/tkribbon-release/
 
 | File | What it is |
 |---|---|
-| `tclkit-tkribbon-0.3.0-tcl<version>-win-amd64.exe` | A Tcl/Tk 8.5.19, 8.6.18 or 9.0.4 runtime with tkribbon inside, Windows 64-bit |
-| `tclkit-tkribbon-0.3.0-tcl<version>-linux-x86_64.tar.gz` | The same for Linux x86-64 |
-| `tkribbon-0.3.0-win-amd64.zip` | The libraries for your own Tcl/Tk on Windows: a `tkribbon/` folder to put on `auto_path` |
-| `tkribbon-0.3.0-linux-x86_64.tar.gz` | The same for Linux |
-| `tkribbon-0.3.0-py3-none-win_amd64.whl` | The library for Python's tkinter on Windows (Python 3.8 or newer): `pip install <file>` |
-| `tkribbon-0.3.0-py3-none-manylinux_2_28_x86_64.whl` | The same for Linux |
-| `tkribbon-0.3.0-docs.zip` | The manuals (Tcl and Python, one page per command or class, with pictures) and the example programs |
+| `tclkit-tkribbon-0.3.1-tcl<version>-win-amd64.exe` | A Tcl/Tk 8.5.19, 8.6.18 or 9.0.4 runtime with tkribbon inside, Windows 64-bit |
+| `tclkit-tkribbon-0.3.1-tcl<version>-linux-x86_64.tar.gz` | The same for Linux x86-64 |
+| `tkribbon-0.3.1-win-amd64.zip` | The libraries for your own Tcl/Tk on Windows: a `tkribbon/` folder to put on `auto_path` |
+| `tkribbon-0.3.1-linux-x86_64.tar.gz` | The same for Linux |
+| `tkribbon-0.3.1-py3-none-win_amd64.whl` | The library for Python's tkinter on Windows (Python 3.8 or newer): `pip install <file>` |
+| `tkribbon-0.3.1-py3-none-manylinux_2_28_x86_64.whl` | The same for Linux |
+| `tkribbon-0.3.1-docs.zip` | The manuals (Tcl and Python, one page per command or class, with pictures) and the example programs |
 
-A tclkit runs a script (`tclkit-tkribbon-0.3.0-tcl9.0.4-win-amd64.exe myapp.tcl`), and an application can be
+A tclkit runs a script (`tclkit-tkribbon-0.3.1-tcl9.0.4-win-amd64.exe myapp.tcl`), and an application can be
 wrapped into it as with any tclkit to make a single-file program. On Linux, the 8.5 and 8.6 kits load Tk with
 `package require Tk`.
 
@@ -105,7 +114,7 @@ that matches the running Tcl:
 |---|---|---|
 | Windows | `tkribbon.dll`, `tkscintilla.dll`, `tkgraph.dll`, `tkhtmlview.dll` | `tcl9tkribbon.dll`, `tcl9tkscintilla.dll`, `tcl9tkgraph.dll`, `tcl9tkhtmlview.dll` |
 | Linux | `tkribbon.so`, `tkscintilla.so`, `tkgraph.so`, `tkhtmlview.so` | `tcl9tkribbon.so`, `tcl9tkscintilla.so`, `tcl9tkgraph.so`, `tcl9tkhtmlview.so` |
-| Tclkits | `tclkit-tkribbon-0.3.0-tcl8.5.19-...`, `tclkit-tkribbon-0.3.0-tcl8.6.18-...` | `tclkit-tkribbon-0.3.0-tcl9.0.4-...` |
+| Tclkits | `tclkit-tkribbon-0.3.1-tcl8.5.19-...`, `tclkit-tkribbon-0.3.1-tcl8.6.18-...` | `tclkit-tkribbon-0.3.1-tcl9.0.4-...` |
 | Python wheels | Used when tkinter runs on Tk 8.6 | Used when tkinter runs on Tk 9 |
 
 The libraries use the stubs interfaces, so the 8.x build loads in any Tcl/Tk from 8.5 on and the 9.x build in any
